@@ -1,0 +1,6 @@
+include VERSION
+include README.md
+include LICENSE
+
+recursive-include qml *
+recursive-include src/python *.in
