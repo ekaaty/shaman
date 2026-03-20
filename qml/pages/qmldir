@@ -1,0 +1,5 @@
+SystemSettingsPage 1.0 SystemSettingsPage.qml
+BootSettingsPage 1.0 BootSettingsPage.qml
+PackageSettingsPage 1.0 PackageSettingsPage.qml
+VisualPersonalizationPage 1.0 VisualPersonalizationPage.qml
+AccessibilityPage 1.0 AccessibilityPage.qml
