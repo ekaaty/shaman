@@ -1,6 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 Christian Tosta [Github](https://ur.link/tosta/)
- *
+ * SPDX-FileCopyrightText: 2025 Christian Tosta
  * SPDX-License-Identifier: GPLv2 or later
  */
 
@@ -12,7 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.plasma.core as PlasmaCore // for KI18n
 
-import "../components"
+import "components"
 
 Kirigami.ApplicationWindow {
     id: appWindow
@@ -20,20 +19,35 @@ Kirigami.ApplicationWindow {
     readonly property real aspectRatio: Screen.width/Screen.height
     readonly property int hintHeight: Kirigami.Units.gridUnit * 36
     readonly property int hintWidth: aspectRatio * hintHeight
+    property string pageTitle: i18n("Welcome")
 
     minimumHeight: hintHeight
     minimumWidth: hintWidth
+    maximumHeight: hintHeight
+    maximumWidth: hintWidth
     height: minimumHeight
     width: minimumWidth
 
-    title: i18nc("@title:window", "Welcome - Shaman")
+    title: i18nc("@title:window", pageTitle + " ─ Shaman")
 
+    Component { id: channelsPage; ChannelsPage {} }
+    Component { id: driversPage; DriversPage {} }
+    Component { id: performancePage; PerformancePage {} }
+    Component { id: securityPage; SecurityPage {} }
+    Component { id: softwarePage; SoftwarePage {} }
     Component { id: themePage; ThemePage {} }
     //Component { id: settings; Settings {} }
 
     pageStack.initialPage: Kirigami.Page {
+        id: initialPage
         padding: Kirigami.Units.largeSpacing
-        title: i18nc("@title:page", "Welcome")
+        title: i18nc("@title:page", "Configuration Wizard")
+
+        onVisibleChanged: {
+            if (visible) {
+                appWindow.pageTitle = title;
+            }
+        }
 
         GridLayout {
             id: initialPageGrid
@@ -62,13 +76,13 @@ Kirigami.ApplicationWindow {
                             radius: 0
                         }
                         header: Kirigami.Heading {
-                            text: i18n("Welcome to Ekaaty Linux")
+                            text: i18n("Welcome to Shaman")
                             level: 1
                         }
                         contentItem: Controls.Label {
                             color: Kirigami.Theme.textColor
                             wrapMode: Text.WordWrap
-                            text: i18n("Shaman, the Ekaaty OS assistant, will guide you throught the setup of your operating system...")
+                            text: i18n("Shaman, your system configuration assistant, will guide you throught the setup of your operating system...")
                         }
                     }
 
@@ -98,40 +112,64 @@ Kirigami.ApplicationWindow {
                         width: parent.width * 3/4
 
                         FormCard.FormButtonDelegate {
-                            id: appearanceButton
+                            id: themeButton
+                            property string pageTitle: i18nc("@title:page", "Appearance Settings")
                             icon.name: "preferences-desktop-theme-global-symbolic"
                             text: i18n("Configure Appearance")
-                            onClicked: appWindow.pageStack.layers.push(themePage)
+                            onClicked: {
+                                appWindow.pageStack.layers.push(themePage)
+                                appWindow.pageTitle = pageTitle;
+                            }
                         }
                         FormCard.FormButtonDelegate {
-                            id: officeButton
+                            id: softwareButton
+                            property string pageTitle: i18nc("@title:page", "Manage Extra Software")
                             icon.name: "applications-office-symbolic"
-                            text: i18n("Install Office Suite")
-                            onClicked: appWindow.pageStack.layers.push(themePage)
+                            text: i18n("Install Extra Software")
+                            onClicked: {
+                                appWindow.pageStack.layers.push(softwarePage)
+                                appWindow.pageTitle = pageTitle;
+                            }
                         }
                         FormCard.FormButtonDelegate {
                             id: driversButton
+                            property string pageTitle: i18nc("@title:page", "Extra Drivers Management")
                             icon.name: "package-symbolic"
                             text: i18n("Install/Update Extra Drivers")
-                            onClicked: appWindow.pageStack.layers.push(themePage)
+                            onClicked: {
+                                appWindow.pageStack.layers.push(driversPage)
+                                appWindow.pageTitle = pageTitle;
+                            }
                         }
                         FormCard.FormButtonDelegate {
                             id: repositoriesButton
+                            property string pageTitle: i18nc("@title:page", "Repositories Settings")
                             icon.name: "repository-symbolic"
                             text: i18n("Manage Software Repositories")
-                            onClicked: appWindow.pageStack.layers.push(themePage)
+                            onClicked: {
+                                appWindow.pageStack.layers.push(channelsPage)
+                                appWindow.pageTitle = pageTitle;
+                            }
                         }
                         FormCard.FormButtonDelegate {
                             id: securityButton
+                            property string pageTitle: i18nc("@title:page", "Security Settings")
                             icon.name: "security-high-symbolic"
                             text: i18n("System Security Check-Up")
-                            onClicked: appWindow.pageStack.layers.push(themePage)
+                            onClicked: {
+                                appWindow.pageStack.layers.push(securityPage)
+                                appWindow.pageTitle = pageTitle;
+                            }
                         }
                         FormCard.FormButtonDelegate {
                             id: performanceButton
+                            property string pageTitle: i18nc("@title:page", "Performance Settings")
                             icon.name: "battery-profile-performance"
                             text: i18n("Adjust the System Performance")
-                            onClicked: appWindow.pageStack.layers.push(themePage)
+                            onClicked: {
+                                appWindow.pageStack.layers.push(performancePage);
+                                appWindow.pageTitle = pageTitle;
+                            }
                         }
                         /*FormCard.FormButtonDelegate {
                             id: settingsButton
@@ -142,7 +180,6 @@ Kirigami.ApplicationWindow {
                     }
                 }
             }
-
         }
     }
 }
