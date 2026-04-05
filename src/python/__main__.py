@@ -10,6 +10,7 @@ import signal
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QUrl, QCoreApplication
+from .backend import ShamanBackend
 
 # Versioning
 from .metadata import APPLICATION_NAME, ORGANIZATION_NAME, APPLICATION_VERSION
@@ -32,9 +33,12 @@ def run():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(os.path.dirname(current_dir))
 
+    # Set backend
+    shaman_backend = ShamanBackend()
+    engine.rootContext().setContextProperty("backend", shaman_backend)
+
     # Load the QML file
     url = QUrl(f"file://{project_root}/{project_name}/qml/ui/Main.qml")
-
     engine.load(url)
 
     # 4. Error Checking
