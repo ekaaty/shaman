@@ -11,13 +11,9 @@ import "forms" as ShamanForms
 
 Kirigami.Page {
     id: performancePage
-    title: i18nc("@title:page", "Performance Settings")
+    title: i18nc("@title:page", "Kernel & Performance")
 
-    //Layout.minimumWidth: parent.width * 1/3
-    //Layout.preferredWidth: parent.width * 1/2
-    //Layout.maximumWidth: parent.width * 3/4
-
-    padding: Kirigami.Units.largeSpacing * 3
+    padding: Kirigami.Units.largeSpacing * 2
 
     onVisibleChanged: {
         if (visible) {
@@ -28,7 +24,7 @@ Kirigami.Page {
     GridLayout {
         anchors.fill: parent
         anchors.margins: Kirigami.Units.largeSpacing
-        columnSpacing: Kirigami.Units.gridUnit / 2
+        columnSpacing: Kirigami.Units.gridUnit
         columns: 2
 
         ColumnLayout {
@@ -37,23 +33,17 @@ Kirigami.Page {
             Layout.preferredWidth: parent.width * 1/2
             spacing: Kirigami.Units.largeSpacing
 
-            Kirigami.Heading {
-                text: i18n("Optimization Guide")
-                level: 2
-            }
-
             Controls.Label {
                 Layout.fillWidth: true
-                text: i18n("Fine-tuning your system can significantly reduce latency and improve responsiveness. These settings allow you to balance between battery life and raw performance.")
+                text: i18n("Fine-tune the operational core to optimize system responsiveness and resource allocation. This section facilitates the orchestration of kernel-level parameters, allowing for precise balancing between power efficiency, low-latency execution, and high-throughput performance according to deployment requirements.")
                 wrapMode: Text.WordWrap
-                opacity: 0.8
+                opacity: 0.85
             }
 
-            Kirigami.InlineMessage {
+            ShamanComponents.StatusNote {
                 Layout.fillWidth: true
-                type: Kirigami.MessageType.Information
+                type: "important"
                 text: i18n("Changes to Kernel Boot Parameters require a system restart to take effect.")
-                visible: true
             }
 
             Item { Layout.fillHeight: true }
