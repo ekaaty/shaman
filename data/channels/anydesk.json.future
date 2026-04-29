@@ -1,0 +1,40 @@
+// shaman add-channel https://vendor.com/shaman.json
+
+{
+  "id": "anydesk",
+  "display_name": "AnyDesk",
+  "origin": "Third Party",
+  "bootstrap": {
+    "strategies": {
+      "dnf_repository": {
+        "method": "dnf_setopt",
+        "params": {
+          "name": "Anydesk",
+          "baseurl": "http://rpm.anydesk.com/fedora/$basearch/",
+          "gpgkey": "https://keys.anydesk.com/repos/RPM-GPG-KEY"
+        }
+      },
+      "apt_repository": {
+        "method": "apt_list_file",
+        "params": {
+          "url": "deb [signed-by=%signed_by%] https://deb.anydesk.com all main",
+          "key_url": "https://keys.anydesk.com/repos/DEB-GPG-KEY",
+          "signed_by": "/etc/apt/keyrings/keys.anydesk.com.asc"
+        }
+      }
+    },
+    "mapping": {
+      "fedora": "dnf_repository",
+      "ekaaty": "dnf_repository",
+      "almalinux": "dnf_repository",
+      "debian": "apt_repository",
+      "ubuntu": "apt_repository"
+    }
+  },
+  "depends": {
+    "fedora": ["fedora"],
+    "ekaaty": ["fedora"],
+    "debian": ["main"],
+    "ubuntu": ["main"]
+  }
+}

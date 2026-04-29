@@ -1,0 +1,32 @@
+[
+  {
+    "id": "google-chrome",
+    "display_name": "Google Chrome",
+    "icon": "google-chrome",
+    "category": "Applications",
+    "origin": "Third Party",
+    "tags": ["application", "web-browser"],
+    "bootstrap": "dnf -y install fedora-workstation-repositories",
+    "depends": "fedora"
+  },
+  {
+    "id": "brave-browser",
+    "display_name": "Brave Browser",
+    "icon": "brave-browser",
+    "category": "Applications",
+    "origin": "Third Party",
+    "tags": ["application", "web-browser"],
+    "bootstrap": "dnf -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo",
+    "depends": "fedora"
+  },
+  {
+    "id": "microsoft-edge",
+    "display_name": "Microsoft Edge",
+    "icon": "microsoft-edge",
+    "category": "Applications",
+    "origin": "Third Party",
+    "tags": ["application", "web-browser"],
+    "bootstrap": "dnf -y config-manager addrepo --id microsoft-edge --set name=microsoft-edge --save-filename /etc/yum.repos.d/microsoft-edge.repo --set baseurl=https://packages.microsoft.com/yumrepos/edge/",
+    "depends": "fedora"
+  }
+]

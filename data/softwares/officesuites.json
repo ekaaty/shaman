@@ -1,0 +1,22 @@
+[
+    {
+        id: "libreoffice",
+        text: "LibreOffice",
+        icon: "libreoffice",
+        channel: "fedora"
+    },
+    {
+        id: "eurooffice",
+        text: "Euro Office",
+        icon: "office-eu",
+        tags: ["coming-soon"],
+        channel: "ekaaty-extras"
+    },
+    {
+        id: "msoffice",
+        text: "Microsoft Office 365",
+        icon: "microsoft-365",
+        tags: ["premium"],
+        channel: "ekaaty-premium"
+    }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "anydesk",
+    "display_name": "AnyDesk",
+    "icon": "anydesk",
+    "category": "Applications",
+    "origin": "Third Party",
+    "tags": ["application", "remote-access", "support"],
+    "bootstrap": "dnf -y config-manager addrepo --id anydesk --set name='Anydesk' --set baseurl='http://rpm.anydesk.com/fedora/$basearch/' --set gpgcheck=1 --set gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY --set enabled=0 --add-or-replace",
+    "depends": "fedora"
+  }
+]

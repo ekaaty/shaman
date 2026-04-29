@@ -1,0 +1,22 @@
+[
+  {
+    "id": "copr:copr.fedorainfracloud.org:ekaaty:core",
+    "display_name": "Ekaaty - Core",
+    "icon": "ekaaty-logo-icon",
+    "category": "General",
+    "origin": "Base System",
+    "tags": ["system", "base"],
+    "bootstrap": "dnf -y copr enable ekaaty/core",
+    "depends": "fedora"
+  },
+  {
+    "id": "copr:copr.fedorainfracloud.org:ekaaty:kde-extras",
+    "display_name": "Ekaaty - KDE Plasma Extras",
+    "icon": "kde-plasma",
+    "category": "General",
+    "origin": "Base System",
+    "tags": ["system", "desktop"],
+    "bootstrap": "dnf -y copr enable ekaaty/kde-extras",
+    "depends": "copr:copr.fedorainfracloud.org:ekaaty:core"
+  }
+]

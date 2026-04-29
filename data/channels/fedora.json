@@ -1,0 +1,99 @@
+[
+  {
+    "id": "fedora",
+    "display_name": "Fedora - Release",
+    "icon": "fedora-logo-icon",
+    "category": "General",
+    "origin": "Base System",
+    "readonly": true
+  },
+  {
+    "id": "fedora-source",
+    "display_name": "Fedora - Release Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "fedora"
+  },
+  {
+    "id": "updates",
+    "display_name": "Fedora - Updates",
+    "icon": "system-software-update",
+    "category": "General",
+    "origin": "Base System",
+    "depends": "fedora",
+    "readonly": true
+  },
+  {
+    "id": "updates-source",
+    "display_name": "Fedora - Updates Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "updates"
+  },
+  {
+    "id": "updates-debuginfo",
+    "display_name": "Fedora - Updates Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "updates"
+  },
+  {
+    "id": "updates-testing",
+    "display_name": "Fedora - Updates Testing",
+    "icon": "applications-engineering",
+    "category": "General",
+    "origin": "Testing Packages",
+    "depends": "updates"
+  },
+  {
+    "id": "updates-testing-source",
+    "display_name": "Fedora - Updates Testing Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "updates-testing"
+  },
+  {
+    "id": "updates-testing-debuginfo",
+    "display_name": "Fedora - Updates Testing Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "updates-testing"
+  },
+  {
+    "id": "fedora-debuginfo",
+    "display_name": "Fedora - Release Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "fedora"
+  },
+  {
+    "id": "fedora-cisco-openh264",
+    "display_name": "Cisco Openh264",
+    "icon": "video-x-generic",
+    "category": "Multimedia",
+    "origin": "Base System",
+    "depends": "fedora"
+  },
+  {
+    "id": "fedora-cisco-openh264-source",
+    "display_name": "Cisco Openh264 - Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "fedora-cisco-openh264"
+  },
+  {
+    "id": "fedora-cisco-openh264-debuginfo",
+    "display_name": "Cisco Openh264 - Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "fedora-cisco-openh264"
+  }
+]

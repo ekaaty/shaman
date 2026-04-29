@@ -1,0 +1,22 @@
+[
+  {
+    "id": "gitlab.com_paulcarroty_vscodium_repo",
+    "display_name": "VSCodium",
+    "icon": "vscodium",
+    "category": "Applications",
+    "origin": "Third Party",
+    "tags": ["application", "development"],
+    "bootstrap": "rpm --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg && dnf -y config-manager --add-repo https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/rpms/",
+    "depends": "fedora"
+  },
+  {
+    "id": "copr:copr.fedorainfracloud.org:phracek:PyCharm",
+    "display_name": "PyCharm Community",
+    "icon": "pycharm-community",
+    "category": "Applications",
+    "origin": "Third Party",
+    "tags": ["application", "development"],
+    "bootstrap": "dnf -y copr enable phracek/PyCharm",
+    "depends": "fedora"
+  }
+]

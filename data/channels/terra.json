@@ -1,0 +1,56 @@
+[
+  {
+    "id": "terra",
+    "display_name": "Terra Rolling - General",
+    "icon": "terra-logo-icon",
+    "category": "Extras",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release",
+    "depends": "fedora"
+  },
+  {
+    "id": "terra-source",
+    "display_name": "Terra Rolling - Source",
+    "icon": "package-x-generic",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "terra"
+  },
+  {
+    "id": "terra-extras",
+    "display_name": "Terra Rolling - Extras",
+    "icon": "package-x-generic",
+    "category": "Extras",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install terra-release-extras",
+    "depends": "terra"
+  },
+  {
+    "id": "terra-mesa",
+    "display_name": "Terra Rolling - Mesa Drivers",
+    "icon": "driver-manager",
+    "category": "Hardware",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install terra-release-mesa",
+    "depends": "terra"
+  },
+  {
+    "id": "terra-multimedia",
+    "display_name": "Terra Rolling - Multimedia",
+    "icon": "applications-multimedia",
+    "category": "Multimedia",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install terra-release-multimedia",
+    "depends": "terra"
+  },
+  {
+    "id": "terra-nvidia",
+    "display_name": "Terra Rolling - Nvidia Drivers",
+    "icon": "video-display",
+    "category": "Hardware",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install terra-release-nvidia",
+    "depends": "terra",
+    "conflicts": ["rpmfusion-nonfree", "rpmfusion-nonfree-nvidia"]
+  }
+]

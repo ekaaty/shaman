@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 166.2 166.2"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="brave-browser.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.511698"
+     inkscape:cx="18.372615"
+     inkscape:cy="26.060447"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <linearGradient
+     id="a"
+     y1="1303.8263"
+     y2="1303.8263"
+     gradientTransform="scale(0.92303676,1.0833805)"
+     x1="320.68063"
+     x2="2678.1165"
+     gradientUnits="userSpaceOnUse">
+    <stop
+       offset=".4"
+       stop-color="#f50"
+       id="stop1" />
+    <stop
+       offset=".6"
+       stop-color="#ff2000"
+       id="stop2" />
+  </linearGradient>
+  <linearGradient
+     id="b"
+     x1="260.92035"
+     y1="682.9917"
+     y2="682.9917"
+     gradientTransform="scale(1.9819841,0.50454492)"
+     x2="1154.3988"
+     gradientUnits="userSpaceOnUse">
+    <stop
+       offset="0"
+       stop-color="#ff452a"
+       id="stop3" />
+    <stop
+       offset="1"
+       stop-color="#ff2000"
+       id="stop4" />
+  </linearGradient>
+  <g
+     id="g6"
+     transform="matrix(0.05422866,0,0,0.05422866,8.0475346,7.8848486)"
+     style="stroke-width:18.4404">
+    <path
+       fill="url(#a)"
+       d="m 2395,723 60,-147 -170,-176 c -92,-92 -288,-38 -288,-38 L 1775,110 H 992 L 769,363 c 0,0 -196,-53 -288,37 l -170,175 60,147 -75,218 250,953 c 52,204 87,283 234,387 l 457,310 c 44,27 98,74 147,74 49,0 103,-47 147,-74 l 457,-310 c 147,-104 182,-183 234,-387 l 250,-953 z"
+       id="path4"
+       style="fill:url(#a);stroke-width:18.4404" />
+    <path
+       fill="#ffffff"
+       d="m 1935,524 c 0,0 287,347 287,420 0,75 -36,94 -72,133 l -215,230 c -20,20 -63,54 -38,113 25,60 60,134 20,210 -40,77 -110,128 -155,120 a 820,820 0 0 1 -190,-90 c -38,-25 -160,-126 -160,-165 0,-39 126,-110 150,-124 23,-16 130,-78 132,-102 2,-24 2,-30 -30,-90 -32,-60 -88,-140 -80,-192 10,-52 100,-80 167,-105 l 207,-78 c 16,-8 12,-15 -36,-20 -48,-4 -183,-22 -244,-5 -61,17 -163,43 -173,57 -8,14 -16,14 -7,62 l 58,315 c 4,40 12,67 -30,77 -44,10 -117,27 -142,27 -25,0 -99,-17 -142,-27 -43,-10 -35,-37 -30,-77 4,-40 48,-268 57,-315 10,-48 1,-48 -7,-62 -10,-14 -113,-40 -174,-57 -60,-17 -196,1 -244,6 -48,4 -52,10 -36,20 l 207,77 c 66,25 158,53 167,105 10,53 -47,132 -80,192 -33,60 -32,66 -30,90 2,24 110,86 132,102 24,15 150,85 150,124 0,39 -119,140 -159,165 a 820,820 0 0 1 -190,90 c -45,8 -115,-43 -156,-120 -40,-76 -4,-150 20,-210 25,-60 -17,-92 -38,-113 L 616,1077 c -35,-37 -71,-57 -71,-131 0,-74 287,-420 287,-420 l 273,44 c 32,0 103,-27 168,-50 65,-20 110,-22 110,-22 0,0 44,0 110,22 66,22 136,50 168,50 33,0 275,-47 275,-47 z m -215,1328 c 18,10 7,32 -10,44 l -254,198 c -20,20 -52,50 -73,50 -21,0 -52,-30 -73,-50 a 13200,13200 0 0 0 -255,-198 c -16,-12 -27,-33 -10,-44 l 150,-80 a 870,870 0 0 1 188,-73 c 15,0 110,34 187,73 z"
+       id="path5"
+       style="stroke-width:18.4404" />
+    <path
+       fill="url(#b)"
+       d="M 1999,363 1775,110 H 992 L 769,363 c 0,0 -196,-53 -288,37 0,0 260,-23 350,123 l 276,47 c 32,0 103,-27 168,-50 65,-20 110,-22 110,-22 0,0 44,0 110,22 66,22 136,50 168,50 33,0 275,-47 275,-47 90,-146 350,-123 350,-123 -92,-92 -288,-38 -288,-38"
+       id="path6"
+       style="fill:url(#b);stroke-width:18.4404" />
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "id": "flathub",
+  "display_name": "Flathub",
+  "origin": "community",
+  "bootstrap": {
+    "strategies": {
+      "flatpak_remote": {
+        "method": "flatpak_repo",
+        "params": {
+          "name": "flathub",
+          "url": "https://flathub.org/repo/flathub.flatpakrepo"
+        }
+      }
+    },
+    "mapping": {
+      "fedora": "flatpak_remote",
+      "ekaaty": "flatpak_remote",
+      "ubuntu": "flatpak_remote"
+    }
+  }
+}

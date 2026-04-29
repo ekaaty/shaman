@@ -1,0 +1,200 @@
+[
+  {
+    "id": "rpmfusion-free",
+    "display_name": "RPM Fusion Free - Release",
+    "icon": "rpmfusion-logo",
+    "category": "Extras",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$releasever.noarch.rpm",
+    "depends": "fedora-cisco-openh264",
+    "appstream": "dnf -y install rpmfusion-free-appstream-data"
+  },
+  {
+    "id": "rpmfusion-free-updates",
+    "display_name": "RPM Fusion Free - Updates",
+    "icon": "system-software-update",
+    "category": "Extras",
+    "origin": "Third Party",
+    "depends": "rpmfusion-free"
+  },
+  {
+    "id": "rpmfusion-free-updates-source",
+    "display_name": "RPM Fusion Free - Updates Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-free-updates"
+  },
+  {
+    "id": "rpmfusion-free-updates-debuginfo",
+    "display_name": "RPM Fusion Free - Updates Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-free-updates"
+  },
+  {
+    "id": "rpmfusion-free-updates-testing",
+    "display_name": "RPM Fusion Free - Updates Testing",
+    "icon": "applications-engineering",
+    "category": "Extras",
+    "origin": "Testing Packages",
+    "depends": "rpmfusion-free-updates"
+  },
+  {
+    "id": "rpmfusion-free-updates-testing-source",
+    "display_name": "RPM Fusion Free - Updates Testing Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-free-updates-testing"
+  },
+  {
+    "id": "rpmfusion-free-updates-testing-debuginfo",
+    "display_name": "RPM Fusion Free - Updates Testing Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-free-updates-testing"
+  },
+  {
+    "id": "rpmfusion-free-source",
+    "display_name": "RPM Fusion Free - Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-free"
+  },
+  {
+    "id": "rpmfusion-free-debuginfo",
+    "display_name": "RPM Fusion Free - Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-free"
+  },
+  {
+    "id": "rpmfusion-nonfree",
+    "display_name": "RPM Fusion Nonfree - Release",
+    "icon": "rpmfusion-logo",
+    "category": "Extras",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$releasever.noarch.rpm",
+    "depends": "fedora-cisco-openh264",
+    "appstream": "dnf -y install rpmfusion-nonfree-appstream-data"
+  },
+  {
+    "id": "rpmfusion-nonfree-updates",
+    "display_name": "RPM Fusion Nonfree - Updates",
+    "icon": "system-software-update",
+    "category": "Extras",
+    "origin": "Third Party",
+    "depends": "rpmfusion-nonfree"
+  },
+  {
+    "id": "rpmfusion-nonfree-updates-source",
+    "display_name": "RPM Fusion Nonfree - Updates Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-nonfree-updates"
+  },
+  {
+    "id": "rpmfusion-nonfree-updates-debuginfo",
+    "display_name": "RPM Fusion Nonfree - Updates Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-nonfree-updates"
+  },
+  {
+    "id": "rpmfusion-nonfree-updates-testing",
+    "display_name": "RPM Fusion Nonfree - Updates Testing",
+    "icon": "applications-engineering",
+    "category": "Extras",
+    "origin": "Testing Packages",
+    "depends": "rpmfusion-nonfree-updates"
+  },
+  {
+    "id": "rpmfusion-nonfree-updates-testing-source",
+    "display_name": "RPM Fusion Nonfree - Updates Testing Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-nonfree-updates-testing"
+  },
+  {
+    "id": "rpmfusion-nonfree-updates-testing-debuginfo",
+    "display_name": "RPM Fusion Nonfree - Updates Testing Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-nonfree-updates-testing"
+  },
+  {
+    "id": "rpmfusion-nonfree-source",
+    "display_name": "RPM Fusion Nonfree - Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-nonfree"
+  },
+  {
+    "id": "rpmfusion-nonfree-debuginfo",
+    "display_name": "RPM Fusion Nonfree - Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-nonfree"
+  },
+  {
+    "id": "rpmfusion-nonfree-nvidia-driver",
+    "display_name": "RPM Fusion Nonfree - Nvidia",
+    "icon": "nvidia-drivers",
+    "category": "Hardware",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install fedora-workstation-repositories",
+    "depends": "rpmfusion-nonfree"
+  },
+  {
+    "id": "rpmfusion-nonfree-nvidia-driver-source",
+    "display_name": "RPM Fusion Nonfree - Nvidia Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-nonfree-nvidia-driver"
+  },
+  {
+    "id": "rpmfusion-nonfree-nvidia-driver-debuginfo",
+    "display_name": "RPM Fusion Nonfree - Nvidia Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-nonfree-nvidia-driver"
+  },
+  {
+    "id": "rpmfusion-nonfree-steam",
+    "display_name": "RPM Fusion Nonfree - Steam",
+    "icon": "steam",
+    "category": "Games",
+    "origin": "Third Party",
+    "bootstrap": "dnf -y install fedora-workstation-repositories",
+    "depends": "rpmfusion-nonfree"
+  },
+  {
+    "id": "rpmfusion-nonfree-steam-source",
+    "display_name": "RPM Fusion Nonfree - Steam Source",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Source Code",
+    "depends": "rpmfusion-nonfree-steam"
+  },
+  {
+    "id": "rpmfusion-nonfree-steam-debuginfo",
+    "display_name": "RPM Fusion Nonfree - Steam Debug Info",
+    "icon": "applications-engineering",
+    "category": "Development",
+    "origin": "Debug Information",
+    "depends": "rpmfusion-nonfree-steam"
+  }
+]

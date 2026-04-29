@@ -1,0 +1,26 @@
+[
+    {
+        id: "firefox",
+        text: "Mozilla Firefox",
+        icon: "firefox",
+        channel: "fedora"
+    },
+    {
+        id: "brave",
+        text: "Brave Browser",
+        icon: "brave-browser",
+        channel: "brave-browser"
+    },
+    {
+        id: "edge",
+        text: "Microsoft Edge",
+        icon: "microsoft-edge",
+        channel: "microsoft-edge"
+    },
+    {
+        id: "chrome",
+        text: "Google Chrome",
+        icon: "google-chrome",
+        channel: "google-chrome"
+    }
+]
