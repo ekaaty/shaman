@@ -1,6 +1,8 @@
 include VERSION
 include README.md
 include LICENSE
+include __metadata__.py.in
 
-recursive-include qml *
-recursive-include src/python *.in
+recursive-include ui/gui/qml *
+recursive-include ui/gui/img *
+recursive-include data/channels *.json

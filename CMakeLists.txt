@@ -14,14 +14,16 @@ string(REGEX REPLACE ${VERSION_REGEX} "\\2" SHAMAN_VERSION_MINOR "${SHAMAN_VERSI
 string(REGEX REPLACE ${VERSION_REGEX} "\\3" SHAMAN_VERSION_PATCH "${SHAMAN_VERSION}")
 
 project(shaman VERSION ${SHAMAN_VERSION})
+set(APPLICATION_ID "com.ekaaty.shaman")
 set(ORGANIZATION_NAME "Ekaaty")
+set(ORGANIZATION_DOMAIN "ekaaty.com")
 
 include(GNUInstallDirs)
 
 # Generate src/python/metadata.py from the template
 configure_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/python/metadata.py.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/src/python/metadata.py"
+    "${CMAKE_CURRENT_SOURCE_DIR}/__metadata__.py.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/__metadata__.py"
     @ONLY
 )
 
@@ -42,30 +44,25 @@ find_package(KF6Config REQUIRED)
 # --- Installation Rules ---
 # =========================================================================
 
-# 1. Install Python Backend files (including generated metadata.py)
-set(SHAMAN_PYTHON_DIR "src/python")
-file(GLOB SHAMAN_PYTHON_SOURCES
-    "${SHAMAN_PYTHON_DIR}/__main__.py"
-    "${SHAMAN_PYTHON_DIR}/__init__.py"
-    "${CMAKE_CURRENT_BINARY_DIR}/src/python/metadata.py"
+install(DIRECTORY collectors models providers ui
+    DESTINATION ${KDE_INSTALL_DATADIR}/${PROJECT_NAME}
+    PATTERN "__pycache__" EXCLUDE
 )
 
-install(FILES ${SHAMAN_PYTHON_SOURCES}
-    DESTINATION ${KDE_INSTALL_DATADIR}/${PROJECT_NAME}/python/
+install(FILES
+    "__init__.py"
+    "__main__.py"
+    "engine.py"
+    "${CMAKE_CURRENT_BINARY_DIR}/__metadata__.py"
+    DESTINATION ${KDE_INSTALL_DATADIR}/${PROJECT_NAME}
 )
 
-
-# 2. Install QML Frontend files
-set(SHAMAN_QML_DIR "qml")
-install(DIRECTORY ${SHAMAN_QML_DIR}/
-    DESTINATION ${KDE_INSTALL_DATADIR}/${PROJECT_NAME}/qml/
-    FILE_PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
-    PATTERN "*.desktop" EXCLUDE
-    PATTERN "*.qrc" EXCLUDE
+install(DIRECTORY data
+    DESTINATION ${KDE_INSTALL_DATADIR}/${PROJECT_NAME}
+    PATTERN "*.todo" EXCLUDE
 )
 
-
-# 3. Create and install the executable PYTHON wrapper
+# Create and install the executable PYTHON wrapper
 set(SHAMAN_WRAPPER_CONTENT
 "#!/usr/bin/env python3
 import sys
@@ -75,7 +72,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_dir = os.path.join(os.path.dirname(current_dir), r'${KDE_INSTALL_DATADIR}')
 
 sys.path.insert(0, project_dir)
-from ${PROJECT_NAME}.python.__main__ import run
+from ${PROJECT_NAME}.__main__ import run
 
 if __name__ == '__main__':
     run()
