@@ -1,0 +1,36 @@
+# @file: home-office.yml
+# @brief: Optimized for general productivity and video calls.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: home-office
+name: "Home Office & Productivity"
+description: "Balanced performance and power consumption for daily tasks and meetings."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "Full Preemption"
+    summary: "Keeps the desktop fluid even during background system updates."
+    args: { param: "preempt=full", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Balanced Profile"
+    summary: "Dynamically scales performance based on current workload."
+    args: { profile: "balanced" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "TCP Fast Open"
+    summary: "Reduces connection latency for faster web browsing."
+    args: { key: "net.ipv4.tcp_fastopen", value: "3" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "System Responsiveness"
+    summary: "Optimizes directory entry caching for smooth file browsing."
+    args: { key: "vm.vfs_cache_pressure", value: "100" }
+
+metadata:
+  icon: "user-home"
+  reboot_required: true
+
+# :set ts=2:sw=2:sts=2:et

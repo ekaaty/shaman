@@ -1,0 +1,46 @@
+# @file: business.yml
+# @brief: Enterprise focus with security hardening and stable networking.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: business
+name: "Business & Enterprise"
+description: "Security and stability focused for formal work environments."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "CPU Security Mitigations"
+    summary: "Ensures protection against Spectre and Meltdown vulnerabilities."
+    args: { param: "mitigations=auto", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Desktop Profile"
+    summary: "Optimizes hardware for standard workstation stability."
+    args: { profile: "desktop" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "TCP SACK Optimization"
+    summary: "Improves performance on high-latency connections."
+    args: { key: "net.ipv4.tcp_sack", value: "1" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "IPv6 Privacy"
+    summary: "Generates temporary addresses for enhanced online privacy."
+    args: { key: "net.ipv6.conf.all.use_tempaddr", value: "2" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "SysRq Hardening"
+    summary: "Disables Magic SysRq to prevent unauthorized console access."
+    args: { key: "kernel.sysrq", value: "0" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Log Restriction"
+    summary: "Restricts kernel log access to root for better security."
+    args: { key: "kernel.dmesg_restrict", value: "1" }
+
+metadata:
+  icon: "network-workgroup"
+  reboot_required: true
+
+# :set ts=2:sw=2:sts=2:et

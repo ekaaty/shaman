@@ -1,0 +1,46 @@
+# @file gaming.yml
+# @brief: Low latency and GPU/CPU priorization for gaming enhancement.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: gaming
+name: "Low latency gaming settings"
+description: "Aggressive optimizations to reduce gaming input lag and micro-stutters."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "Full Preemption"
+    summary: "Reduces kernel latency for instantaneous input response."
+    args: { param: "preempt=full", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Latency Performance Profile"
+    summary: "Prioritizes raw power and response time over energy savings."
+    args: { profile: "latency-performance" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Memory Map Limits"
+    summary: "Ensures compatibility with memory-intensive modern games (Proton)."
+    args: { key: "vm.max_map_count", value: "2147483642" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "SSD Swappiness"
+    summary: "Reduces disk swapping to prevent micro-stuttering."
+    args: { key: "vm.swappiness", value: "10" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Network Backlog"
+    summary: "Increases packet buffer size for smoother online gaming."
+    args: { key: "net.core.netdev_max_backlog", value: "2000" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Sched Autogroup"
+    summary: "Optimizes CPU task scheduling for interactive applications."
+    args: { key: "kernel.sched_autogroup_enabled", value: "1" }
+
+metadata:
+  icon: "input-gaming"
+  reboot_required: true
+
+# :set ts=2:sw=2:sts=2:et

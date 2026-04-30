@@ -1,0 +1,17 @@
+# @file kernel-cmd.yml
+# @brief Action to apply kernel boot parameters using grubby.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+- name: Update Kernel Parameters
+  command:
+    cmd: "grubby --update-kernel=ALL --args='{{ param }}'"
+  when: state == "present"
+
+- name: Remove Kernel Parameters
+  command:
+    cmd: "grubby --update-kernel=ALL --remove-args='{{ param }}'"
+  when: state == "absent"
+
+# :set ts=2:sw=2:sts=2:et

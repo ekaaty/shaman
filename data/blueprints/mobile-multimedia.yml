@@ -1,0 +1,41 @@
+# @file: mobile-multimedia.yml
+# @brief: Home use profile for laptops focused on media and battery life.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: mobile-multimedia
+name: "Mobile Multimedia & Home"
+description: "Optimized for media consumption, web browsing and maximum battery."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "Full Preemption"
+    summary: "Prevents audio and video stuttering on battery power."
+    args: { param: "preempt=full", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Powersave Profile"
+    summary: "Aggressively throttles hardware for maximum battery endurance."
+    args: { profile: "powersave" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "TCP Fast Open"
+    summary: "Speeds up initial handshake for media streaming sites."
+    args: { key: "net.ipv4.tcp_fastopen", value: "3" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "VFS Cache Tuning"
+    summary: "Maintains responsive UI while limiting disk active time."
+    args: { key: "vm.vfs_cache_pressure", value: "50" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Writeback Optimization"
+    summary: "Saves energy by delaying disk write cycles."
+    args: { key: "vm.dirty_background_ratio", value: "20" }
+
+metadata:
+  icon: "applications-multimedia"
+  reboot_required: true
+
+# :set ts=2:sw=2:sts=2:et

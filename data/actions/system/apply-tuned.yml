@@ -1,0 +1,14 @@
+# @file: apply-tuned.yml
+# @brief: Action to switch system-wide hardware optimization profiles using Tuned.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+- name: Set Tuned Profile
+  description: "Changes the active Tuned profile to the one specified in blueprint."
+  command:
+    cmd: "tuned-adm profile {{ profile }}"
+  # This action is executed whenever a profile is specified, regardless of state
+  when: profile is defined
+
+# :set ts=2:sw=2:sts=2:et

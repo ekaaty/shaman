@@ -1,0 +1,51 @@
+# @file: multimedia.yml
+# @brief: High-bandwidth data transfers and media processing optimization.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: multimedia
+name: "Multimedia & Content Creation"
+description: "Maximum throughput for video editing and high-intensity media workflows."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "Full Preemption"
+    summary: "Essential for real-time audio and video sync stability."
+    args: { param: "preempt=full", state: "present" }
+
+  - action: "system/kernel-cmd.yml"
+    title: "Hugepage Tuning"
+    summary: "Prevents memory spikes that cause micro-stutters in editing apps."
+    args: { param: "transparent_hugepage=never", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Network Throughput Profile"
+    summary: "Optimizes the system for massive media file transfers."
+    args: { profile: "network-throughput" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Background Writes"
+    summary: "Prevents system lag during large file renders."
+    args: { key: "vm.dirty_background_ratio", value: "5" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "File Handle Limit"
+    summary: "Allows complex projects with thousands of open media assets."
+    args: { key: "fs.file-max", value: "2097152" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Network Backlog"
+    summary: "Improves packet handling for high-resolution streaming."
+    args: { key: "net.core.netdev_max_backlog", value: "2000" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Scheduler Response"
+    summary: "Ensures UI smoothness while the CPU is rendering in background."
+    args: { key: "kernel.sched_autogroup_enabled", value: "1" }
+
+metadata:
+  icon: "applications-multimedia"
+  reboot_required: true
+
+# :set ts=2:sw=2:sts=2:et

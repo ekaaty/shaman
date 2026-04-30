@@ -1,0 +1,46 @@
+# @file: development.yml
+# @brief: Hard multitask focused for software build and I/O stability.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: development
+name: "Workstation & Development"
+description: "Optimized for code building, containers and hard multitasking."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "Full Preemption"
+    summary: "Ensures high UI responsiveness during heavy code compilation."
+    args: { param: "preempt=full", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Throughput Performance"
+    summary: "Tunes the system for high-intensity computing workloads."
+    args: { profile: "throughput-performance" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Inotify Watches"
+    summary: "Allows IDEs to monitor a high number of files simultaneously."
+    args: { key: "fs.inotify.max_user_watches", value: "524288" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "PID Expansion"
+    summary: "Increases the process limit for massive container workloads."
+    args: { key: "kernel.pid_max", value: "4194304" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "File Cache Pressure"
+    summary: "Improves directory caching for faster source code browsing."
+    args: { key: "vm.vfs_cache_pressure", value: "50" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Shared Memory Limit"
+    summary: "Increases memory allocation limits for large-scale databases."
+    args: { key: "kernel.shmmax", value: "68719476736" }
+
+metadata:
+  icon: "code-context"
+  reboot_required: false
+
+# :set ts=2:sw=2:sts=2:et

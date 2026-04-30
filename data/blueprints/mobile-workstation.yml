@@ -1,0 +1,41 @@
+# @file: mobile-workstation.yml
+# @brief: Balanced profile for laptops, mixing energy efficiency with dev performance.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+id: mobile-workstation
+name: "Mobile Workstation (Standard)"
+description: "Optimized for laptops: balances battery life with development power."
+
+actions:
+  - action: "system/kernel-cmd.yml"
+    title: "Full Preemption"
+    summary: "Ensures a responsive desktop even under P-state throttling."
+    args: { param: "preempt=full", state: "present" }
+
+  - action: "system/apply-tuned.yml"
+    title: "Balanced Battery Profile"
+    summary: "Optimized performance curve for professional mobile use."
+    args: { profile: "balanced-battery" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Inotify Watches"
+    summary: "Standard development support for file system monitoring."
+    args: { key: "fs.inotify.max_user_watches", value: "524288" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Memory Management"
+    summary: "Prioritizes RAM over SSD swap to preserve hardware life."
+    args: { key: "vm.swappiness", value: "10" }
+
+  - action: "system/apply-sysctl.yml"
+    title: "Process Limit"
+    summary: "Expands capacity for local container environments."
+    args: { key: "kernel.pid_max", value: "4194304" }
+
+metadata:
+  icon: "computer-laptop"
+  reboot_required: true
+
+# :set ts=2:sw=2:sts=2:et

@@ -1,0 +1,19 @@
+# @file: apply-sysctl.yml
+# @brief: Action to apply and persist kernel parameters via sysctl.
+#
+# SPDX-FileCopyrightText: 2026 Christian Tosta
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+- name: Apply Sysctl Parameter
+  description: "Sets a kernel variable in memory and persists it to disk."
+  command:
+    # Set immediate value
+    cmd: "sysctl -w {{ key }}={{ value }}"
+
+- name: Persist Sysctl Parameter
+  description: "Creates a configuration file to ensure the setting survives reboots."
+  command:
+    # Ekaaty specific path for Shaman-managed overrides
+    cmd: "echo '{{ key }}={{ value }}' > /etc/sysctl.d/99-shaman-{{ key }}.conf"
+
+# :set ts=2:sw=2:sts=2:et
